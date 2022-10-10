@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/Untitled-2.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>TTmusic</title>
+	<style>
+
+        #mybgcarousel{ /* CSS for specific carousel container called #mybgcarousel. */
+            height: 250px;
+    width: 100%;
+    border-radius: 20px;
+        }
+        
+        /* ######### Shared CSS for various parts of carousel (in the event of multiple carousels) ######### */
+        
+        div.bgcarousel{ /* shared CSS for main carousel container */
+        background: black url(ajaxload.gif) center center no-repeat; /* loading gif while caoursel is loading */
+        }
+        
+        div.bgcarousel img.navbutton{ /* CSS for the nav buttons */
+        }
+        
+        div.bgcarousel div.slide{ /* CSS for each image's DIV container within main container */
+        background-color: black;
+        background-position: center center; /* center image within carousel */
+        background-repeat: no-repeat;
+        background-size: cover; /* CSS3 property to scale image within container? "cover" or "contain" */
+        color: black;
+        }
+        
+        div.bgcarousel div.selectedslide{ /* CSS for currently selected slide */
+        }
+        
+        div.bgcarousel div.slide div.desc{ /* DIV that contains the textual description inside .slide */
+        position: absolute;
+        color: white;
+        left: 40px;
+        top: 100px;
+        width:200px;
+        padding: 10px;
+        font: bold 16px sans-serif, Arial;
+        text-shadow: 0 -1px 1px #8a8a8a; /* CSS3 text shadow */
+        z-index:5;
+        }
+        
+        div.bgcarousel div.selectedslide div.desc{ /* CSS for currently selected slide's desc div */
+        }
+        
+        div.bgcarousel div.slide div.desc h2{
+        font-size:150%;
+        margin:0;
+        }
+        
+        div.bgcarousel div.slide div.desc a{
+        color:yellow;
+        text-decoration:none;
+        }
+        
+        </style>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/jquery.velocity.min.js"></script>
+        <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+        
+        <script src="js/bgcarousel.js" type="text/javascript">
+        
+        /***********************************************
+        * Background Image Carousel- (c) Dynamic Drive (www.dynamicdrive.com)
+        * Please keep this notice intact
+        * Visit http://www.dynamicdrive.com/ for this script and 100s more.
+        ***********************************************/
+        
+        </script>
+        
+        <script type="text/javascript">
+        
+        var firstbgcarousel=new bgCarousel({
+            wrapperid: 'mybgcarousel', //ID of blank DIV on page to house carousel
+            imagearray: [
+                ['images/topRecommendSong1.png', '<h2>Nora Roberts</h2>"Nothing ever seems too bad, too hard, or too sad when you`ve got a Christmas tree in the living room."'], //["image_path", "optional description"]
+                ['images/topRecommendSong2.png', '<h2>Alexander Smith</h2>"Christmas is the day that holds all time together."'],
+                ['images/topRecommendSong3.png', '"Christmas is most truly Christmas when we celebrate it by giving the light of love to those who need it most."'],
+                ['images/topRecommendSong4.png', '<h2>Tom Baker</h2>"Some Christmas tree ornaments do more than glitter and glow, they represent a gift of love given a long time ago."'] //<--no trailing comma after very last image element!
+            ],
+            displaymode: {type:'auto', pause:3000, cycles:2, stoponclick:false, pauseonmouseover:true},
+            navbuttons: ['images/left.gif', 'images/right.gif', 'up.gif', 'down.gif'], // path to nav images
+            activeslideclass: 'selectedslide', // CSS class that gets added to currently shown DIV slide
+            orientation: 'h', //Valid values: "h" or "v"
+            persist: true, //remember last viewed slide and recall within same session?
+            slideduration: 500 //transition duration (milliseconds)
+        })
+        
+        </script>
+    <!-- InstanceEndEditable -->
+    <script src="https://kit.fontawesome.com/c6f5d3ac9f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/addplaylist.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tooltip.css">
+    <link rel="stylesheet" href="css/homestyle.css">
+	<link rel="stylesheet" href="css/glider.min.css">
+	<link rel = "icon" href =  "images/vector_2_1.png" type = "image/x-icon">
+
+
+    <!-- editable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+<body>
+    <!-- editable  -->
+    <script type="text/javascript">
+
+        /******************************************
+        * Snow Effect Script- By Altan d.o.o. (http://www.altan.hr/snow/index.html)
+        * Visit Dynamic Drive DHTML code library (http://www.dynamicdrive.com/) for full source code
+        * Last updated Nov 9th, 05' by DD. This notice must stay intact for use
+        ******************************************/
+          function openwindow(){
+        window.open("autumn_effect.htm","","width=350,height=500")
+        }
+        
+          //Configure below to change URL path to the snow image
+          var snowsrc="images/snow.gif"
+          // Configure below to change number of snow to render
+          var no = 10;
+          // Configure whether snow should disappear after x seconds (0=never):
+          var hidesnowtime = 0;
+          // Configure how much snow should drop down before fading ("windowheight" or "pageheight")
+          var snowdistance = "pageheight";
+        
+        ///////////Stop Config//////////////////////////////////
+        
+          var ie4up = (document.all) ? 1 : 0;
+          var ns6up = (document.getElementById&&!document.all) ? 1 : 0;
+        
+            function iecompattest(){
+            return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+            }
+        
+          var dx, xp, yp;    // coordinate and position variables
+          var am, stx, sty;  // amplitude and step variables
+          var i, doc_width = 800, doc_height = 600; 
+          
+          if (ns6up) {
+            doc_width = self.innerWidth;
+            doc_height = self.innerHeight;
+          } else if (ie4up) {
+            doc_width = iecompattest().clientWidth;
+            doc_height = iecompattest().clientHeight;
+          }
+        
+          dx = new Array();
+          xp = new Array();
+          yp = new Array();
+          am = new Array();
+          stx = new Array();
+          sty = new Array();
+          snowsrc=(snowsrc.indexOf("dynamicdrive.com")!=-1)? "snow.gif" : snowsrc
+          for (i = 0; i < no; ++ i) {  
+            dx[i] = 0;                        // set coordinate variables
+            xp[i] = Math.random()*(doc_width-50);  // set position variables
+            yp[i] = Math.random()*doc_height;
+            am[i] = Math.random()*20;         // set amplitude variables
+            stx[i] = 0.02 + Math.random()/10; // set step variables
+            sty[i] = 0.7 + Math.random();     // set step variables
+                if (ie4up||ns6up) {
+              if (i == 0) {
+                document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><a href=\"http://dynamicdrive.com\"><img src='"+snowsrc+"' border=\"0\"><\/a><\/div>");
+              } else {
+                document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=\"0\"><\/div>");
+              }
+            }
+          }
+        
+          function snowIE_NS6() {  // IE and NS6 main animation function
+            doc_width = ns6up?window.innerWidth-10 : iecompattest().clientWidth-10;
+                doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHeight : (ie4up && snowdistance=="windowheight")?  iecompattest().clientHeight : (ie4up && !window.opera && snowdistance=="pageheight")? iecompattest().scrollHeight : iecompattest().offsetHeight;
+            if (snowdistance=="windowheight"){
+                doc_height = window.innerHeight || iecompattest().clientHeight
+            }
+            else{
+                doc_height = iecompattest().scrollHeight
+            }
+            for (i = 0; i < no; ++ i) {  // iterate for every dot
+              yp[i] += sty[i];
+              if (yp[i] > doc_height-50) {
+                xp[i] = Math.random()*(doc_width-am[i]-30);
+                yp[i] = 0;
+                stx[i] = 0.02 + Math.random()/10;
+                sty[i] = 0.7 + Math.random();
+              }
+              dx[i] += stx[i];
+              document.getElementById("dot"+i).style.top=yp[i]+"px";
+              document.getElementById("dot"+i).style.left=xp[i] + am[i]*Math.sin(dx[i])+"px";  
+            }
+            snowtimer=setTimeout("snowIE_NS6()", 10);
+          }
+        
+            function hidesnow(){
+                if (window.snowtimer) clearTimeout(snowtimer)
+                for (i=0; i<no; i++) document.getElementById("dot"+i).style.visibility="hidden"
+            }
+                
+        
+        if (ie4up||ns6up){
+            snowIE_NS6();
+                if (hidesnowtime>0)
+                setTimeout("hidesnow()", hidesnowtime*1000)
+                }
+        
+        </script>
+    <!-- this is home page -->
+    <div>
+        <!-- same all -->
+      <!-- InstanceBeginEditable name="EditRegion3" -->
+        <div class="nav">
+          <div class="logo-container"> <a href="home.html"><img src="images/Vector 2.png" alt=""></a> </div>
+          <div class="navOption">
+            <ul>
+              <a href="index.html" class="active">
+                <li id="home"><i class="fas fa-home"></i> Home</li>
+              </a> <a href="library.html">
+                  <li id="library"><i class="fas fa-chart-bar"></i> Your library</li>
+                  </a> <a href="chart.html">
+                    <li id="chart"><i class="fas fa-chart-line"></i> Top chart </li>
+                    </a>
+              <button id="popupAddPlaylist">
+                <li ><i class="far fa-plus-square"></i> add playlist </li>
+              </button>
+            </ul>
+          </div>
+        </div>
+        <!-- InstanceEndEditable -->
+        <!-- same all -->
+        <!-- InstanceBeginEditable name="EditRegion5" -->
+        <div class="searchbar">
+          <div class="search"> <i class="fas fa-search icon"></i> &emsp;
+            <input type="text" placeholder="   Artist or song">
+            <i class="fas fa-times icon"></i> </div>
+          <div class="user">
+            <ul>
+              <li>
+                <div class="avatar-container"> <img src="images/avatar.jpg" alt=""> </div>
+                <p>thanh tuyền <i class="fas fa-sort-down"></i></p>
+                <div class="submenuUser">
+                  <ul >
+                    <li><a href="#">Themes</a></li>
+                    <li><a href="#">Upgrage to Premium</a></li>
+                    <li><a href="index.html">Log out</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- InstanceEndEditable -->
+        <!-- change <3  -->
+        <!-- InstanceBeginEditable name="EditRegion4" -->
+        <div class="container">
+            <div class="content">
+                <div class="topRecommendSong">
+                    <div id="mybgcarousel" class="bgcarousel"></div>
+                </div>
+                <div class="slider-header">
+                    <label for="recommendAlbum">Recommend Album</label>
+                <div class="slideBtn-container" style="display:flex">
+                    <button aria-label="Previous" class="glider-prev"><i class="fas fa-angle-left"></i></button>
+                        <button aria-label="Next" class="glider-next"><i class="fas fa-angle-right"></i></button>
+                </div>
+                </div>
+                <div class="recommend recommendAlbum"  id="recommendAlbum">
+                    <div class="glider-contain">
+                        <div class="glider" style="display:flex">
+                          <div><a href="album.html"><div class="wrapper">
+                            <div class="albumContainer">
+                                <img src="images/adele25.jpg" alt="">
+                                <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                            </div>
+                            <p class="mainInfo">25</p>
+                            <p class="otherInfo">Adele</p>
+                        </div></a></div>
+                          <div><div class="wrapper">
+                            <div class="albumContainer">
+                                <img src="images/TaylorSwift.jpg" alt="">
+                                <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                            </div>
+                            <p class="mainInfo">1989</p>
+                            <p class="otherInfo">Taylor Swift</p>
+                        </div></div>
+                          <div><div class="wrapper">
+                            <div class="albumContainer">
+                                <img src="images/xxivk.jpg" alt="">
+                                <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                            </div>
+                            <p class="mainInfo">24K Magic</p>
+                            <p class="otherInfo">Bruno Mars</p>
+                        </div></div>
+                          <div><div class="wrapper">
+                            <div class="albumContainer">
+                                <img src="images/BillieEilish.jpg" alt="">
+                                <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                            </div>
+                            <p class="mainInfo tooltip" >When We All ...
+                                <span class="tooltiptext">When We All Asleep, Where Do We Go?</span></p>
+                            <p class="otherInfo">Billie Eilish</p>
+                        </div></div>
+                          <div><div class="wrapper">
+                            <div class="albumContainer">
+                                <img src="images/charliePuth.jpg" alt="">
+                                <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                            </div>
+                            <p class="mainInfo">Voicenotes</p>
+                            <p class="otherInfo">Charlie Puth</p>
+                        </div></div>
+                        <div><div class="wrapper">
+                            <div class="albumContainer">
+                                <img src="images/TaylorSwift.jpg" alt="">
+                                <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                            </div>
+                            <p class="mainInfo">1989</p>
+                            <p class="otherInfo">Taylor Swift</p>
+                        </div></div>
+                        <div><div class="wrapper">
+                            <div class="albumContainer">
+                                <img src="images/TaylorSwift.jpg" alt="">
+                                <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                            </div>
+                            <p class="mainInfo">1989</p>
+                            <p class="otherInfo">Taylor Swift</p>
+                        </div></div>
+                        <div><div class="wrapper">
+                            <div class="albumContainer">
+                                <img src="images/TaylorSwift.jpg" alt="">
+                                <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                            </div>
+                            <p class="mainInfo">1989</p>
+                            <p class="otherInfo">Taylor Swift</p>
+                        </div></div>
+                        </div>
+                      
+                        
+                        <!-- <div role="tablist" class="dots"></div> -->
+                      </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+                <div class="slider-header">
+                    <label for="recommendAlbum">Recommend Artist</label>
+                <div class="slideBtn-container" style="display:flex">
+                    <button aria-label="Previous" class="glider-prev"><i class="fas fa-angle-left"></i></button>
+                        <button aria-label="Next" class="glider-next"><i class="fas fa-angle-right"></i></button>
+                </div>
+                </div>
+                <div class="recommend recommendArtist">
+                    <a href="artist.html"><div class="wrapper">
+                        <div class="artistContainer">
+                            <img id="img" src="images/charliePuth.jpg" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Charlie Puth</p>
+                    </div></a>
+                    
+                    <div class="wrapper">
+                        <div class="artistContainer">
+                            <img id="img" src="images//TaylorSwift.jpg" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Taylor Swift</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="artistContainer">
+                            <img id="img" src="images/Adele.jpg" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Adele</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="artistContainer">
+                            <img id="img" src="images/ArianaGrande.jpg" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Ariana Grande</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="artistContainer">
+                            <img id="img" src="images/BillieEilish.jpg" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Billie Eilish</p>
+                    </div>
+                </div>
+                <div class="slider-header">
+                    <label for="recommendAlbum">Recommend for Today</label>
+                <div class="slideBtn-container" style="display:flex">
+                    <button aria-label="Previous" class="glider-prev"><i class="fas fa-angle-left"></i></button>
+                        <button aria-label="Next" class="glider-next"><i class="fas fa-angle-right"></i></button>
+                </div>
+                </div>
+                <div class="recommend recommendForToday">
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/x-mas1.jfif" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Vintage Christmas Playlist</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/x-mas2.jfif" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Christmas Jazz</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/x-mas3.jfif" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Christmas K-pop</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/x-mas5.jpg" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Latest Christmas Songs</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/HappyBirthday.jpg" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">New Year Songs</p>
+                    </div>
+                </div>
+				<div class="slider-header">
+                    <label for="recommendAlbum">MV</label>
+                <div class="slideBtn-container" style="display:flex">
+                    <button aria-label="Previous" class="glider-prev"><i class="fas fa-angle-left"></i></button>
+                        <button aria-label="Next" class="glider-next"><i class="fas fa-angle-right"></i></button>
+                </div>
+                </div>
+                <div class=" recommendMv">
+                    <div class="mvWrapper">
+                        <div class="video">
+                            <iframe width="450" height="290" src="https://www.youtube-nocookie.com/embed/iIYMJFiseLE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="info">La La La</div>
+                    </div>
+                    <div class="mvWrapper">
+                        <div class="video">
+                            <iframe width="450" height="290" src="https://www.youtube-nocookie.com/embed/vGfJeW_CcFY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        </div>
+                        <div class="info">I'll Make A Man OUt You</div>
+                    </div>
+                    <div class="mvWrapper">
+                        <div class="video">
+                            <iframe width="450" height="290" src="https://www.youtube-nocookie.com/embed/2nY2BoXNQoA?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                
+                        </div>
+                        <div class="info">You Are My Sunshine</div>
+                    </div>
+                    <div class="mvWrapper">
+                        <div class="video">
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/O9MvdMqKvpU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                        </div>
+                        <div class="info">Color Of The Wind</div>
+                    </div>
+
+                    <div class="mvWrapper">
+                        <div class="video">
+                            <iframe width="450" height="290" src="https://www.youtube-nocookie.com/embed/OID7gA8fcaw?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="info">Squirrels In My Pants</div>
+                    </div>
+                    <div class="mvWrapper">
+                        <div class="video">
+                            <iframe width="450" height="290" src="https://www.youtube-nocookie.com/embed/nXpB1rixnPQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="info">Hawaiian Roller Coaster</div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div class="list">
+                <div class="weeklylist">
+                    <h2>Weekly list</h2>
+                    <div class="song">
+                        <ul>
+                            <li>Mistletoe</li>
+                            <li>Santa Tell Me</li>
+                            <li>Last Christmas</li>
+                            <li>Dear No One</li>
+                            <li>Like It's Chrishtmas</li>
+                            <li>Jingle Bell Rock</li>
+                            <li>Sleigh Ride</li>
+                            <li>Let It Snow!</li>
+
+                            <li>Mistletoe</li>
+                            <li>Santa Tell Me</li>
+                            <li>Last Christmas</li>
+                            <li>Dear No One</li>
+                            <li>Like It's Chrishtmas</li>
+                            <li>Jingle Bell Rock</li>
+                            <li>Sleigh Ride</li>
+                            <li>Let It Snow!</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="latestsong">
+                    <h2>Latest songs</h2>
+                    <div class="song">
+                        <ul>
+                            <li>Lalisa</li>
+                            <li>Money</li>
+                            <li>Last Christmas</li>
+                            <li>Dear No One</li>
+                            <li>I Bet You Think About Me</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <!-- InstanceEndEditable -->
+        <!-- same all -->
+        <div class="playbar">
+          <audio src="music/Mistletoe.mp3" id="audio"></audio>
+            <div class="musicinfo">
+              <div class="music-plate">
+                    <img src="images/Mistletoe.jpg" class="music-img" alt="" id="cover">
+                </div>
+                <div class="music-name">
+                    <h2 id="title">Mistletoe</h2>
+                    <p id="singer">Justin Bieber</p>
+                </div>
+            </div>
+            
+            <div class="music-item">
+                <div class="btn-item">
+                    <button><i class="fas fa-random icon"></i></button>
+                    <button id="next-btn"><i class="fas fa-step-backward icon"></i></button>
+                    <button id="play-btn"><i class="fas fa-play-circle icon" ></i></button>
+                    <button id="prev-btn"><i class="fas fa-step-forward icon"></i></button>
+                    <button><i class="fas fa-sync icon"></i></button>
+                </div>
+                <div class="play-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                
+            </div>
+            <div class="funcbtn">
+                <button class="heartbtn" id="heartbtn"><i class="far fa-heart icon heart"></i></button>
+                <button><i class="fas fa-volume-up icon"></i></button>
+            </div>
+      </div>
+
+        <!-- same all  -->
+        <div class="playlistContainer" id="playlistContainer">
+            <div class="addPlaylist">
+                <p class="header"><h1>Create New Playlist</h1> </p>
+                <button id="closeplaylist" onClick="closeplaylist()"><i class="fas fa-times"></i></button>
+                <label for="playlist">Playlist Name</label>
+                <input type="text" placeholder="Untitled Playlist" class="playlist">
+                <button id="cancelbtn">Cancel</button>
+                <button id="createbtn">Create</button>
+            </div>
+		<script>
+			function closeplaylist(){
+				document.getElementById("playlistContainer").classList.remove('show');
+			}
+		</script>
+        </div>
+	
+        
+</div>
+
+<script src="js/js.js"></script>
+<script src="js/popupAddPlaylist.js"></script>
+<script src="js/heartbtn.js"></script>
+	<!-- InstanceBeginEditable name="EditRegion6" -->
+	<script src="js/glider.min.js"></script>
+<script>
+    new Glider(document.querySelector('.glider'), {
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  draggable: true,
+  dots: '.dots',
+  arrows: {
+    prev: '.glider-prev',
+    next: '.glider-next'
+  }
+});
+
+</script>
+	<!-- InstanceEndEditable -->
+
+</body>
+<!-- InstanceEnd --></html>

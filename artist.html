@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/Untitled-2.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>TTmusic</title>
+	<link rel="stylesheet" href="css/heartbtn.css">
+	<link rel="stylesheet" href="css/album.css">
+	<link rel="stylesheet" href="css/artist.css">
+    <!-- InstanceEndEditable -->
+    <script src="https://kit.fontawesome.com/c6f5d3ac9f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/addplaylist.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tooltip.css">
+    <link rel="stylesheet" href="css/homestyle.css">
+	<link rel="stylesheet" href="css/glider.min.css">
+	<link rel = "icon" href =  "images/vector_2_1.png" type = "image/x-icon">
+
+
+    <!-- editable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+<body>
+    <!-- editable  -->
+    <script type="text/javascript">
+
+        /******************************************
+        * Snow Effect Script- By Altan d.o.o. (http://www.altan.hr/snow/index.html)
+        * Visit Dynamic Drive DHTML code library (http://www.dynamicdrive.com/) for full source code
+        * Last updated Nov 9th, 05' by DD. This notice must stay intact for use
+        ******************************************/
+          function openwindow(){
+        window.open("autumn_effect.htm","","width=350,height=500")
+        }
+        
+          //Configure below to change URL path to the snow image
+          var snowsrc="images/snow.gif"
+          // Configure below to change number of snow to render
+          var no = 10;
+          // Configure whether snow should disappear after x seconds (0=never):
+          var hidesnowtime = 0;
+          // Configure how much snow should drop down before fading ("windowheight" or "pageheight")
+          var snowdistance = "pageheight";
+        
+        ///////////Stop Config//////////////////////////////////
+        
+          var ie4up = (document.all) ? 1 : 0;
+          var ns6up = (document.getElementById&&!document.all) ? 1 : 0;
+        
+            function iecompattest(){
+            return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+            }
+        
+          var dx, xp, yp;    // coordinate and position variables
+          var am, stx, sty;  // amplitude and step variables
+          var i, doc_width = 800, doc_height = 600; 
+          
+          if (ns6up) {
+            doc_width = self.innerWidth;
+            doc_height = self.innerHeight;
+          } else if (ie4up) {
+            doc_width = iecompattest().clientWidth;
+            doc_height = iecompattest().clientHeight;
+          }
+        
+          dx = new Array();
+          xp = new Array();
+          yp = new Array();
+          am = new Array();
+          stx = new Array();
+          sty = new Array();
+          snowsrc=(snowsrc.indexOf("dynamicdrive.com")!=-1)? "snow.gif" : snowsrc
+          for (i = 0; i < no; ++ i) {  
+            dx[i] = 0;                        // set coordinate variables
+            xp[i] = Math.random()*(doc_width-50);  // set position variables
+            yp[i] = Math.random()*doc_height;
+            am[i] = Math.random()*20;         // set amplitude variables
+            stx[i] = 0.02 + Math.random()/10; // set step variables
+            sty[i] = 0.7 + Math.random();     // set step variables
+                if (ie4up||ns6up) {
+              if (i == 0) {
+                document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><a href=\"http://dynamicdrive.com\"><img src='"+snowsrc+"' border=\"0\"><\/a><\/div>");
+              } else {
+                document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=\"0\"><\/div>");
+              }
+            }
+          }
+        
+          function snowIE_NS6() {  // IE and NS6 main animation function
+            doc_width = ns6up?window.innerWidth-10 : iecompattest().clientWidth-10;
+                doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHeight : (ie4up && snowdistance=="windowheight")?  iecompattest().clientHeight : (ie4up && !window.opera && snowdistance=="pageheight")? iecompattest().scrollHeight : iecompattest().offsetHeight;
+            if (snowdistance=="windowheight"){
+                doc_height = window.innerHeight || iecompattest().clientHeight
+            }
+            else{
+                doc_height = iecompattest().scrollHeight
+            }
+            for (i = 0; i < no; ++ i) {  // iterate for every dot
+              yp[i] += sty[i];
+              if (yp[i] > doc_height-50) {
+                xp[i] = Math.random()*(doc_width-am[i]-30);
+                yp[i] = 0;
+                stx[i] = 0.02 + Math.random()/10;
+                sty[i] = 0.7 + Math.random();
+              }
+              dx[i] += stx[i];
+              document.getElementById("dot"+i).style.top=yp[i]+"px";
+              document.getElementById("dot"+i).style.left=xp[i] + am[i]*Math.sin(dx[i])+"px";  
+            }
+            snowtimer=setTimeout("snowIE_NS6()", 10);
+          }
+        
+            function hidesnow(){
+                if (window.snowtimer) clearTimeout(snowtimer)
+                for (i=0; i<no; i++) document.getElementById("dot"+i).style.visibility="hidden"
+            }
+                
+        
+        if (ie4up||ns6up){
+            snowIE_NS6();
+                if (hidesnowtime>0)
+                setTimeout("hidesnow()", hidesnowtime*1000)
+                }
+        
+        </script>
+    <!-- this is home page -->
+    <div>
+        <!-- same all -->
+      <!-- InstanceBeginEditable name="EditRegion3" -->
+        <div class="nav">
+          <div class="logo-container"> <a href="home.html"><img src="images/Vector 2.png" alt=""></a> </div>
+          <div class="navOption">
+            <ul>
+              <a href="index.html" class="active">
+                <li id="home"><i class="fas fa-home"></i> Home</li>
+              </a> <a href="library.html">
+                  <li id="library"><i class="fas fa-chart-bar"></i> Your library</li>
+                  </a> <a href="chart.html">
+                    <li id="chart"><i class="fas fa-chart-line"></i> Top chart </li>
+                    </a>
+              <button id="popupAddPlaylist">
+                <li ><i class="far fa-plus-square"></i> add playlist </li>
+              </button>
+            </ul>
+          </div>
+        </div>
+      <!-- InstanceEndEditable -->
+        <!-- same all -->
+        <!-- InstanceBeginEditable name="EditRegion5" -->
+        <div class="searchbar">
+          <div class="search"> <i class="fas fa-search icon"></i> &emsp;
+            <input type="text" placeholder="   Artist or song">
+            <i class="fas fa-times icon"></i> </div>
+          <div class="user">
+            <ul>
+              <li>
+                <div class="avatar-container"> <img src="images/avatar.jpg" alt=""> </div>
+                <p>thanh tuyền <i class="fas fa-sort-down"></i></p>
+                <div class="submenuUser">
+                  <ul >
+                    <li><a href="#">Themes</a></li>
+                    <li><a href="#">Upgrage to Premium</a></li>
+                    <li><a href="index.html">Log out</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- InstanceEndEditable -->
+        <!-- change <3  -->
+        <!-- InstanceBeginEditable name="EditRegion4" -->
+        <div class="container">
+			<div class="head">
+                <div class="bannerArtist">
+                    <div class="artistImg"><img src="images/charliePuth.jpg" alt=""></div>
+                <div>
+                    
+                <div class="artistInfo">
+                    <div class="name">Charlie Puth</div>
+                    <div class="detailInfo"> (born December 2, 1991) is an American singer, songwriter, and record producer. His initial exposure came through the viral success of his song videos uploaded to Youtube.
+                        <br>At only 29 years old, Charlie Puth has proven to be one of industry’s most consistent hitmakers and sought-after collaborators....</div>
+                    </div>
+                    <button class="followbtn">Followed <i class="fas fa-check"></i></button>
+                </div>
+                </div>
+            </div>
+			<div class="songs">
+                <label for="">Top Song</label>
+                <div class="nd1">
+                    <div class="songImg">
+                        <div class="songImg2">
+                            <img src="images/Mistletoe.jpg" alt="">
+                        </div>
+                        
+                    </div>
+                    <div class="listSongs">
+                        <div class="rank">
+                            <div class="ranknumber component1">1</div>
+                            <div class="songname component2">
+                                <p class="mainInfo">See You Again</p>
+                                <p class="otherInfo">Wiz Khalifa, Charlie Puth</p>
+                            </div>
+                            <div class="time component3"><button id="heartbtn" class="heartbtn"><i class="fas fa-heart icon heart"></i></button> &ensp; 03:36</div>
+                        </div>
+
+                        <div class="rank">
+                            <div class="ranknumber component1">2</div>
+                            <div class="songname component2">
+                                <p class="mainInfo">One Call Away</p>
+                                <p class="otherInfo">Charlie Puth, Tyga</p>
+                            </div>
+                            <div class="time component3"><button id="heartbtn" class="heartbtn"><i class="fas fa-heart icon heart"></i></button> &ensp; 03:12</div>
+                        </div>
+                        <div class="rank">
+                            <div class="ranknumber component1">3</div>
+                            <div class="songname component2">
+                                <p class="mainInfo">Is It Just Me?</p>
+                                <p class="otherInfo">Sasha Alex Sloan, Charlie Puth</p>
+                            </div>
+                            <div class="time component3"><button id="heartbtn" class="heartbtn"><i class="fas fa-heart icon heart"></i></button> &ensp; 02:34</div>
+                        </div>
+                        <div class="rank">
+                            <div class="ranknumber component1">4</div>
+                            <div class="songname component2">
+                                <p class="mainInfo">Oops</p>
+                                <p class="otherInfo">Little Mix, Charlie Puth</p>
+                            </div>
+                            <div class="time component3"><button id="heartbtn" class="heartbtn"><i class="fas fa-heart icon heart"></i></button> &ensp; 03:24</div>
+                        </div>
+    
+                    </div>
+                </div>
+                <label for="">Single</label>
+                <div class="SingleofArtist">
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/afterall.png" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">After All</p>
+                        <p class="otherInfo">9/2021</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/isitjustme.png" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Is It Just Me?</p>
+                        <p class="otherInfo">2020</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/easier.png" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Easier</p>
+                        <p class="otherInfo">2019</p>
+                    </div>
+                   
+                </div>
+                
+                <label for="">Album</label>
+                <div class="SingleofArtist">
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/wedonttalk.png" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">We Don's Talk Anymore</p>
+                        <p class="otherInfo">2016</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/attention.png" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Nine Track Mind</p>
+                        <p class="otherInfo">2016</p>
+                    </div>
+                    <div class="wrapper">
+                        <div class="albumContainer">
+                            <img src="images/sometypeoflove.png" alt="">
+                            <div class="playBtn"><i class="fas fa-play icon"></i></div>
+                        </div>
+                        <p class="mainInfo">Some Type Of Love</p>
+                        <p class="otherInfo">2015</p>
+                    </div>
+                   
+                </div>
+
+
+                <label for="">MV</label>
+                <div class="recommendMv">
+                    <div class="mvWrapper">
+                        <div class="video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/SJqIEP_g184" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="info">Sober</div>
+                    </div>
+                </div>
+            
+            </div>
+		</div>
+        <!-- InstanceEndEditable -->
+        <!-- same all -->
+        <div class="playbar">
+          <audio src="music/Mistletoe.mp3" id="audio"></audio>
+            <div class="musicinfo">
+              <div class="music-plate">
+                    <img src="images/Mistletoe.jpg" class="music-img" alt="" id="cover">
+                </div>
+                <div class="music-name">
+                    <h2 id="title">Mistletoe</h2>
+                    <p id="singer">Justin Bieber</p>
+                </div>
+            </div>
+            
+            <div class="music-item">
+                <div class="btn-item">
+                    <button><i class="fas fa-random icon"></i></button>
+                    <button id="next-btn"><i class="fas fa-step-backward icon"></i></button>
+                    <button id="play-btn"><i class="fas fa-play-circle icon" ></i></button>
+                    <button id="prev-btn"><i class="fas fa-step-forward icon"></i></button>
+                    <button><i class="fas fa-sync icon"></i></button>
+                </div>
+                <div class="play-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                
+            </div>
+            <div class="funcbtn">
+                <button class="heartbtn" id="heartbtn"><i class="far fa-heart icon heart"></i></button>
+                <button><i class="fas fa-volume-up icon"></i></button>
+            </div>
+      </div>
+
+        <!-- same all  -->
+        <div class="playlistContainer" id="playlistContainer">
+            <div class="addPlaylist">
+                <p class="header"><h1>Create New Playlist</h1> </p>
+                <button id="closeplaylist" onClick="closeplaylist()"><i class="fas fa-times"></i></button>
+                <label for="playlist">Playlist Name</label>
+                <input type="text" placeholder="Untitled Playlist" class="playlist">
+                <button id="cancelbtn">Cancel</button>
+                <button id="createbtn">Create</button>
+            </div>
+		<script>
+			function closeplaylist(){
+				document.getElementById("playlistContainer").classList.remove('show');
+			}
+		</script>
+        </div>
+	
+        
+</div>
+
+<script src="js/js.js"></script>
+<script src="js/popupAddPlaylist.js"></script>
+<script src="js/heartbtn.js"></script>
+	<!-- InstanceBeginEditable name="EditRegion6" -->EditRegion6<!-- InstanceEndEditable -->
+
+</body>
+<!-- InstanceEnd --></html>
